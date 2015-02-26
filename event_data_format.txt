@@ -1,0 +1,173 @@
+'''
+@{
+    '_node_data': None,
+    'data':
+    {
+        u'extra':
+        {
+            u'message': u'exception \'Whoops\\Exception\\ErrorException\' with message \'Division by zero\' in /var/www/ness/www/devel/crash.php:25 Stack trace: #0 /var/www/ness/www/devel/crash.php(25): Whoops\\Run->handleError(2, \'Division by zer...\', \'/var/www/ness/w...\', 25, Array) #1 {main} {"exception":"[object] (Whoops\\\\Exception\\\\ErrorException(code: 2): Division by zero at /var/www/ness/www/devel/crash.php:25)"} []\n',
+            u'context':
+            {
+                u'exception': u'Object Whoops\\Exception\\ErrorException'
+            }
+        },
+        u'sentry.interfaces.Http':
+        {
+            u'cookies':
+            {
+                u'_ga': u'GA1.1.915096798.1422529723',
+                u'dbgbar-status': u'0',
+                u'drop6':
+                u'27',
+                u'drop7': u''
+            },
+            u'url': u'https://192.168.56.102/devel/crash.php',
+            u'headers':
+            {
+                u'Accept-Language': u'en-US,en;q=0.5',
+                u'Accept-Encoding': u'gzip,
+                deflate',
+                u'Host': u'192.168.56.102',
+                u'Accept': u'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                u'User-Agent': u'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:36.0) Gecko/20100101 Firefox/36.0',
+                u'Connection': u'keep-alive',
+                u'Referer': u'https://192.168.56.102/?instid=1&year=2014&llevel=1&menu=30&depid=16&debug=4096&mode=1',
+                u'Cache-Control': u'max-age=0'
+            },
+            u'env':
+            {
+                u'SSL_VERSION_INTERFACE': u'mod_ssl/2.4.7',
+                u'REQUEST_TIME': 1424964081,
+                u'SSL_CIPHER_EXPORT': u'false',
+                u'CONTEXT_DOCUMENT_ROOT': u'/var/www/ness/www',
+                u'SERVER_SOFTWARE': u'Apache/2.4.7 (Ubuntu)',
+                u'CONTEXT_PREFIX': u'',
+                u'SSL_SERVER_A_KEY': u'rsaEncryption',
+                u'SSL_SERVER_S_DN_ST': u'Tyne and Wear',
+                u'SERVER_SIGNATURE': u'<address>Apache/2.4.7 (Ubuntu) Server at 192.168.56.102 Port 443</address>\n',
+                u'REQUEST_METHOD': u'GET',
+                u'SERVER_PROTOCOL': u'HTTP/1.1',
+                u'SSL_SERVER_S_DN': u'CN=localhost,O=ISS,L=Newcastle,ST=Tyne and Wear,C=GB',
+                u'PATH': u'/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+                u'SSL_CIPHER': u'ECDHE-RSA-AES128-GCM-SHA256',
+                u'SSL_SERVER_V_START': u'Jul  2 09:38:27 2014 GMT',
+                u'SSL_SESSION_ID': u'3f49ccf731b6a0faca720fe874a6db89f91410d4665a99e202a060d5e772eced',
+                u'SSL_CLIENT_VERIFY': u'NONE',
+                u'REMOTE_USER': u'nag92',
+                u'PHP_SELF': u'/devel/crash.php',
+                u'SERVER_NAME': u'192.168.56.102',
+                u'REMOTE_ADDR': u'192.168.56.1',
+                u'SSL_CIPHER_ALGKEYSIZE': u'128',
+                u'SSL_SECURE_RENEG': u'true',
+                u'SSL_SERVER_I_DN_C': u'GB',
+                u'SSL_COMPRESS_METHOD': u'NULL',
+                u'SSL_SERVER_I_DN_L': u'Newcastle',
+                u'SSL_SERVER_I_DN_O': u'ISS',
+                u'SERVER_ADDR': u'192.168.56.102',
+                u'DOCUMENT_ROOT': u'/var/www/ness/www',
+                u'SERVER_PORT': u'443',
+                u'SSL_VERSION_LIBRARY': u'OpenSSL/1.0.1f',
+                u'SCRIPT_FILENAME': u'/var/www/ness/www/devel/crash.php',
+                u'SERVER_ADMIN': u'webmaster@localhost',
+                u'SSL_SESSION_RESUMED': u'Resumed',
+                u'SSL_SERVER_S_DN_O': u'ISS',
+                u'SSL_SERVER_A_SIG': u'sha256WithRSAEncryption',
+                u'SSL_SERVER_I_DN_ST': u'Tyne and Wear',
+                u'SCRIPT_NAME': u'/devel/crash.php',
+                u'HTTPS': u'on',
+                u'SSL_SERVER_M_VERSION': u'3',
+                u'SSL_SERVER_S_DN_C': u'GB',
+                u'REQUEST_URI': u'/devel/crash.php?instid=1&year=2014&llevel=1&iid=474&depid=16&debug=4096&mode=1&menu=30',
+                u'SSL_SERVER_M_SERIAL': u'A5C75D1AEF684C77',
+                u'GATEWAY_INTERFACE': u'CGI/1.1',
+                u'SSL_PROTOCOL': u'TLSv1.2',
+                u'REMOTE_PORT': u'49903',
+                u'REQUEST_SCHEME': u'https',
+                u'SSL_SERVER_S_DN_L': u'Newcastle',
+                u'SSL_SERVER_V_END': u'Jul  2 09:38:27 2015 GMT',
+                u'SSL_SERVER_S_DN_CN': u'localhost'
+            },
+            u'query_string': u'instid=1&year=2014&llevel=1&iid=474&depid=16&debug=4096&mode=1&menu=30',
+            u'method': u'GET'
+        },
+        u'sentry.interfaces.Exception':
+        {
+            u'exc_omitted': None,
+            u'values':
+            [
+                {
+                    u'stacktrace':
+                    {
+                        u'frames':
+                        [
+                            {
+                                u'function': u'null',
+                                u'abs_path': u'/var/www/ness/www/devel/crash.php',
+                                u'pre_context':
+                                [
+                                    u"    require_once(Local::libfile('coursetools.php'));",
+                                    u'',
+                                    u'    // added NESSADMIN and NESSMAINT',
+                                    u'    $user = authstaff(NESSDEV|NESSADMIN|NESSMAINT);',
+                                    u"    buildhead($user, 'Fail Page', ' ');"
+                                ],
+                                u'post_context':
+                                [
+                                    u'    buildfoot($user);'
+                                ],
+                                u'filename': u'/var/www/ness/www/devel/crash.php',
+                                u'module': u'crash.php',
+                                u'context_line': u'    $x = 6/0;',
+                                u'lineno': 25
+                            },
+                            {
+                                u'function': u'handleError',
+                                u'abs_path': u'/var/www/ness/www/devel/crash.php',
+                                u'pre_context':
+                                [
+                                    u"    require_once(Local::libfile('coursetools.php'));",
+                                    u'',
+                                    u'    // added NESSADMIN and NESSMAINT',
+                                    u'    $user = authstaff(NESSDEV|NESSADMIN|NESSMAINT);',
+                                    u"    buildhead($user, 'Fail Page', ' ');"
+                                ],
+                                u'vars':
+                                {
+                                    u'message': u'Division by zero',
+                                    u'line': u'25',
+                                    u'file': u'/var/www/ness/www/devel/crash.php',
+                                    u'level': u'2'
+                                },
+                                u'module': u'crash.php:Whoops\\Run',
+                                u'filename': u'/var/www/ness/www/devel/crash.php',
+                                u'post_context':
+                                [
+                                    u'    buildfoot($user);'
+                                ],
+                                u'context_line': u'    $x = 6/0;', u'lineno': 25
+                            }
+                        ],
+                        u'frames_omitted': None
+                    },
+                    u'type': u'Whoops\\Exception\\ErrorException',
+                    u'module': u'/var/www/ness/www/devel/crash.php:25',
+                    u'value': u'Division by zero'
+                }
+            ]
+        },
+        u'version': 5,
+        u'tags':
+        [
+            ('level', 'error'),
+            ('logger', u'NESS'),
+            ('server_name', u'optidev'),
+            ('site', u'192.168.56.102'),
+            ('browser', u'Firefox 36.0'),
+            ('device', 'Other'),
+            ('os', u'Ubuntu'),
+            ('url', u'https://192.168.56.102/devel/crash.php')
+        ]
+    },
+    'id': 'uQI8asq4QMWNIz/uY0siwA=='
+}@
+'''
