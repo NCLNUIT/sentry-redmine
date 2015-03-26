@@ -75,14 +75,14 @@ class RedminePlugin(IssuePlugin):
 #        ]
 
 
+        #Basics
         output.append('\nh2. Exception Overview\n')
         output.append('\n* *Server:* @%s@' % event.server_name)
         output.append('* *Logger:* @%s@' % event.logger)
         output.append('* *Level:* @%s@' % event.level)
-
-        #output.append('* Test: @%s@' % event.data['extra'])
-        #output.append('* Test: @%s@' % event.data['extra']['message'])
-        #output.append('* Test: @%s@' % event.data['extra']['context']['exception'])
+        output.append('* *Method:* @%s@' % event.data['sentry.interfaces.Http']['method'])
+        output.append('* *URL:* @%s@' % event.data['sentry.interfaces.Http']['url'])
+        output.append('* *Query String:* @%s@' % event.data['sentry.interfaces.Http']['query_string'])
 
         #Request Headers
         output.append('\nh2. Headers\n')
@@ -100,6 +100,33 @@ class RedminePlugin(IssuePlugin):
             output.append('* *' + str(k) + ':* @' + str(v) + '@')
 
         #Where is GET and POST???
+
+        #Stack Trace
+        output.append('\nh2. Stack Trace\n')
+
+        output.append('*' + event.data['sentry.interfaces.Exception']['values'][0]['type'] + '*')
+        output.append(event.data['sentry.interfaces.Exception']['values'][0]['module'])
+        output.append('<pre>' + event.data['sentry.interfaces.Exception']['values'][0]['type'] + '</pre>')
+        output.append('\n\n---\n')
+
+        for v in event.data['sentry.interfaces.Exception']['values'][0]['stacktrace']['frames']:
+
+            cur_line = int(v['lineno'])
+
+            output.append('*' + v['abs_path'] + ' in ' + str(v['function']) + '*\n')
+
+            for line in v['pre_context']:
+                output.append('| ' + str(cur_line) + ' | <notextile>' + str(line) + '</notextile> |')
+                cur_line += 1
+
+            output.append('| ' + str(cur_line) + ' | *%{color:#cc0000}<notextile>' + str(v['context_line'] + '</notextile>%* |'))
+            cur_line += 1
+
+            for line in v['post_context']:
+                output.append('| ' + str(cur_line) + ' | <notextile>' + str(line) + '</notextile> |')
+                cur_line += 1
+
+            output.append('\n\n')
 
         body = self._get_group_body(request, group, event)
         if body:
@@ -121,6 +148,7 @@ class RedminePlugin(IssuePlugin):
         """Create a Redmine issue"""
         headers = { "X-Redmine-API-Key": self.get_option('key', group.project),
                     'content-type': 'application/json' }
+
         url = urlparse.urljoin(self.get_option('host', group.project), "issues.json")
         payload = {
             'project_id': self.get_option('project_id', group.project),
@@ -129,6 +157,7 @@ class RedminePlugin(IssuePlugin):
             'subject': form_data['title'].encode('utf-8'),
             'description': form_data['description'].encode('utf-8'),
         }
+
         print >> sys.stderr, "url:", url
         print >> sys.stderr, "payload:\n", pformat(payload)
         print >> sys.stderr, pformat(group)
